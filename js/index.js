@@ -42,10 +42,31 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 // nav
-let nav = Array.from(document.querySelectorAll('nav a'));
+let nav = document.querySelector('nav');
+let links = Array.from(document.querySelectorAll('nav a'));
 for (i=1;i<7;i++) {
-  nav[i-1].textContent = siteContent.nav["nav-item-"+i]
+  links[i-1].textContent = siteContent.nav["nav-item-"+i]
+  links[i-1].style.color = 'green'
 }
+let home = document.createElement('a')
+home.textContent = "Home"
+home.href = "#"
+home.style.color = 'green'
+let darkMode = document.createElement('a')
+let darkBool = false
+if (darkBool) {
+  darkMode.textContent = "Dark Mode"
+} else {
+  darkMode.textContent = "Light Mode"
+}
+darkMode.href = "#"
+darkMode.style.color = 'green'
+darkMode.addEventListener("click",handleClick)
+
+nav.prepend(home)
+nav.appendChild(darkMode)
+
+
 
 // cta
 let h1 = document.querySelector('h1');
@@ -93,3 +114,20 @@ footer.firstElementChild.textContent = siteContent.footer.copyright
 // head
 let title = document.querySelector('head title')
 title.textContent = 'Great Idea!'
+
+// Event Handlers
+function handleClick() {
+  let body = document.querySelector('body')
+  if (!darkBool) {
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+    darkBool = true;
+    logo.src =  './img/logo-inverted.png'
+  } else {
+    body.style.backgroundColor = "white"
+    body.style.color = "black"
+    darkBool = false
+    logo.src = './img/logo.png'
+  }
+
+}
