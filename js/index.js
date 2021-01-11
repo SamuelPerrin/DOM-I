@@ -133,6 +133,9 @@ function handleClick() {
     body.style.color = "black";
     darkBool = false;
     logo.src = './img/logo.png';
+    let mainContent = document.querySelector('.main-content');
+    mainContent.style.borderTop = "2px solid black";
+    mainContent.style.borderBottom = "2px solid black";
     h1.innerHTML = siteContent.cta.h1.replace(/\s/g, '<br>');
     darkMode.textContent = 'Dark Mode';
   }
