@@ -49,12 +49,14 @@ for (i=1;i<7;i++) {
 
 // cta
 let h1 = document.querySelector('h1');
-h1.textContent = siteContent.cta.h1;
+// h1.textContent = siteContent.cta.h1;
+h1.innerHTML = siteContent.cta.h1.replace(/\s/g, '<br>')
+
 
 let button = document.querySelector('.cta button');
 button.textContent = siteContent.cta.button;
 
-let ctaIMG = document.querySelector('.cta img');
+let ctaIMG = document.querySelector('#cta-img');
 ctaIMG.src = siteContent.cta['img-src'];
 
 // main-content
@@ -65,12 +67,11 @@ features.querySelector('p').textContent = siteContent['main-content']['features-
 let about = features.nextElementSibling;
 about.firstElementChild.textContent = siteContent['main-content']['about-h4'];
 about.querySelector('p').textContent = siteContent['main-content']['about-content'];
-let middleIMG = document.querySelector('.main-content img');
+let middleIMG = document.querySelector('#middle-img');
 middleIMG.src = siteContent['main-content']['middle-img-src'];
 let services = document.querySelector('.bottom-content').firstElementChild;
 services.firstElementChild.textContent = siteContent['main-content']['services-h4'];
 services.querySelector('p').textContent = siteContent['main-content']['services-content'];
-console.log(services.nextElementSibling)
 let product = services.nextElementSibling;
 product.firstElementChild.textContent = siteContent['main-content']['product-h4']
 product.querySelector('p').textContent = siteContent['main-content']['product-content']
@@ -81,7 +82,7 @@ vision.querySelector('p').textContent = siteContent['main-content']['vision-cont
 // contact
 let contact = document.querySelector('.contact');
 contact.firstElementChild.textContent = siteContent.contact['contact-h4']
-contact.querySelectorAll('p')[0].textContent = siteContent.contact.address
+contact.querySelectorAll('p')[0].innerHTML = siteContent.contact.address.replace('Street ','Street <br>')
 contact.querySelectorAll('p')[1].textContent = siteContent.contact.phone
 contact.querySelectorAll('p')[2].textContent = siteContent.contact.email
 
