@@ -53,11 +53,11 @@ home.textContent = "Home"
 home.href = "#"
 home.style.color = 'green'
 let darkMode = document.createElement('a')
-let darkBool = false
+let darkBool = false;
 if (darkBool) {
-  darkMode.textContent = "Dark Mode"
+  darkMode.textContent = "Light Mode";
 } else {
-  darkMode.textContent = "Light Mode"
+  darkMode.textContent = "Dark Mode";
 }
 darkMode.href = "#"
 darkMode.style.color = 'green'
@@ -122,12 +122,19 @@ function handleClick() {
     body.style.backgroundColor = "black";
     body.style.color = "white";
     darkBool = true;
-    logo.src =  './img/logo-inverted.png'
+    logo.src =  './img/logo-inverted.png';
+    let mainContent = document.querySelector('.main-content');
+    mainContent.style.borderTop = "2px solid white";
+    mainContent.style.borderBottom = "2px solid white";
+    h1.innerHTML = `DARK MODE<br>IS<br>AWESOME`;
+    darkMode.textContent = 'Light Mode'
   } else {
-    body.style.backgroundColor = "white"
-    body.style.color = "black"
-    darkBool = false
-    logo.src = './img/logo.png'
+    body.style.backgroundColor = "white";
+    body.style.color = "black";
+    darkBool = false;
+    logo.src = './img/logo.png';
+    h1.innerHTML = siteContent.cta.h1.replace(' ', '<br>');
+    darkMode.textContent = 'Dark Mode';
   }
 
 }
